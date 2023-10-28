@@ -1,0 +1,160 @@
+package com.product;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class ProductDBUtil {
+	
+	private static boolean isSuccess;
+	private static Connection con = null;
+	private static Statement stmt = null;
+	private static ResultSet rs = null;
+	
+	public static List<Product> getProduct (String name){
+		
+		ArrayList<Product> product = new ArrayList<>();
+		
+		
+		
+		try {
+			//String sql = "select * from product_details where product_name='%''"+name+"''%'";
+			con = DBConnect.getConnction();
+			stmt = con.createStatement();
+			String sql = "SELECT * FROM product_details WHERE product_name LIKE '%" + name + "%'";
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				int id = rs.getInt(1);
+				String productName = rs.getString(2);
+				double price = rs.getDouble(3);
+				String category = rs.getString(4);
+				
+				Product p = new Product(id,productName,price,category);
+				product.add(p);
+			}
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
+		
+		return product;
+		
+	}
+	
+	public static boolean InsertProduct(String name, String price, String category) {
+		
+		boolean isSuccess = false;
+		
+		
+		try {
+			con = DBConnect.getConnction();
+			stmt = con.createStatement();
+            double Price = Double.parseDouble(price); // Convert the String to a double 
+            
+			String sql = "insert into product_details values (0,'"+name+"','"+Price+"','"+category+"')";
+			int rs = stmt.executeUpdate(sql); //update to query
+			
+			if(rs>0) {
+				isSuccess = true;
+			} else {
+				isSuccess = false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return isSuccess;
+	}
+	
+	public static boolean updateProduct(String id, String name, String price, String category) {
+		
+		try {
+			con = DBConnect.getConnction();
+			stmt = con.createStatement();
+			
+			double Price = Double.parseDouble(price);
+			
+			String sql = "update product_details set product_name='"+name+"', product_price='"+Price+"', product_category='"+category+"' where idproduct_details='"+id+"'";
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs > 0) {
+				isSuccess = true;
+			} else {
+				isSuccess = false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+	}
+	
+	public static List<Product> getProdcutDetails(String id){
+		
+		int convertID = Integer.parseInt(id);
+		
+		ArrayList<Product> product = new ArrayList<>();
+		
+		try {
+			
+			con = DBConnect.getConnction();
+			stmt = con.createStatement();
+			String sql = "SELECT * FROM product_details WHERE idproduct_details='" + convertID + "'";
+			rs = stmt.executeQuery(sql);
+
+			while(rs.next()) {
+				int ID = rs.getInt(1);
+				String productName = rs.getString(2);
+				double price = rs.getDouble(3);
+				String category = rs.getString(4);
+				
+				Product p = new Product(ID,productName,price,category);
+				product.add(p);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return product;
+	}
+	
+	public static List<Product> getAllProduct() {
+	    ArrayList<Product> products = new ArrayList<>();
+
+	    try {
+	        con = DBConnect.getConnction();
+	        String sql = "SELECT * FROM product_details";
+	        PreparedStatement pstmt = con.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            int ID = rs.getInt(1);
+	            String productName = rs.getString(2);
+	            double price = rs.getDouble(3);
+	            String category = rs.getString(4);
+
+	            products.add(new Product(ID, productName, price, category));
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return products;
+	}
+
+
+
+	
+}

@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+    <link rel="stylesheet" href="css/ProductInsert.css">
+</head>
+
+<body>
+    <%
+	//get from search bar
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String price = request.getParameter("price");
+		String category = request.getParameter("category");
+	%>
+    <div class="container">
+        <h2>Are you sure to delete product?</h2>
+        <form id="productForm" action="delete" method="post">
+            <div class="input-group">
+                <label for="id">Product Name</label>
+                <input type="text" id="id" name="id" placeholder="Enter product name" value="<%= id %>" readonly>
+            </div>
+            <div class="input-group">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" name="name" placeholder="Enter product name" value="<%= name %>" readonly>
+            </div>
+            <div class="input-group">
+                <label for="price">Price</label>
+                <input type="text" id="price" name="price" placeholder="Enter price" value="<%= price %>" readonly>
+            </div>
+            
+            <button type="submit" name="submit" onclick="showPopup()">Delete Product</button>
+        </form>
+    </div>
+   <script>
+        function showPopup() {
+            alert("Product deleted successfully!");
+        }
+    </script>
+ 
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+@charset "ISO-8859-1";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.featurecard{
+    flex: 1 1 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.card{
+    flex: 1 1 30%;
+    margin: 10px; 
+    background-color: #f2f2f2;
+    text-align: left;
+    border-radius: 15px ;
+}
+
+.card-image{
+    height: 150px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+}
+.card1{
+    background-image: url("beverages.jpg");
+}
+
+.card2{
+    background-image: url("grocery.png");
+}
+
+.card3{
+    background-image: url("fresh.jpg");
+}
+
+.card4{
+    background-image: url("frozen.jpg");
+}
+
+.card p{
+    padding: 10px;
+}
+
+.card h2{
+    padding: 10px;
+}
+
+.card a{
+    background-color: #708090;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.card:hover{
+    background-color: rgb(62,62,62);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+}
+
+p{
+	font-family: "Arial Black", Gadget, sans-serif;
+	
+}

@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheader.css" type="text/css">
+    <link rel="stylesheet" href="css/stylesHomepage.css" type="text/css">
+    <title>Simple Header and Footer</title>
+<title>Insert title here</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <form action="log" method="post">
+                    <input type="text" name="ProductName" placeholder="Search...">
+                    <input type="submit" name="submit" value="Search">
+                </form>
+            </div>
+            
+        </div>
+    </header>
+
+	<form action="insert" method="post">
+		Product Name <input type="text" name="name"><br>
+		Product Price <input type="number" name="price"><br>
+		Product Category: 
+	    <input type="radio" name="category" value="Beverages"> Beverages
+	    <input type="radio" name="category" value="Grocery"> Grocery
+	    <input type="radio" name="category" value="Fresh"> Fresh
+	    <input type="radio" name="category" value="Frozen"> Frozen<br>
+	    
+	    <input type="submit" name="submit" value="Create Product">	
+		</form>
+		
+		
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

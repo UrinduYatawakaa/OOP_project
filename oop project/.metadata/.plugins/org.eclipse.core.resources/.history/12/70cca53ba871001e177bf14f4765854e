@@ -1,0 +1,55 @@
+package com.product;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet("/users")
+public class UserServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Product> product = new ArrayList<>();
+        Connection connection = DBConnectionManagerAll.getConnection();
+        try {
+            String query = "SELECT * FROM users";
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+            	int id = resultSet.getInt("idproduct_details");
+				String productName = resultSet.getString("product_name");
+				double price = resultSet.getDouble("product_price");
+				String category = resultSet.getString("product_category");
+				
+				Product p = new Product(id,productName,price,category);
+				product.add(p);
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null && !connection.isClosed()) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        request.setAttribute("users", users);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("users.jsp");
+        dispatcher.forward(request, response);
+    }
+}

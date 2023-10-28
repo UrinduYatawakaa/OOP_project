@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="#" method="post">
+		Product Name <input type="text" name="name"><br>
+		Product Price <input type="number" name="price"><br>
+		Product Category: 
+	    <input type="radio" name="category" value="Electronics"> Electronics
+	    <input type="radio" name="category" value="Clothing"> Clothing
+	    <input type="radio" name="category" value="Home"> Home
+	    <input type="radio" name="category" value="Others"> Others<br>
+	    
+	    <input type="submit" name="submit" value="Create Product">	
+		</form>
+
+</body>
+</html>

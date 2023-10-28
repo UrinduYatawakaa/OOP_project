@@ -1,0 +1,16 @@
+127.0.0.1 - - [28/Oct/2023:20:03:31 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Oct/2023:20:04:42 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Oct/2023:20:05:54 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Oct/2023:20:11:41 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Oct/2023:20:15:38 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Oct/2023:20:16:24 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:02 +0530] "GET /ProductDemo/homePage.jsp HTTP/1.1" 200 4041
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /ProductDemo/css/stylesheader.css HTTP/1.1" 200 1516
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /ProductDemo/css/stylesHomepage.css HTTP/1.1" 200 1088
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /ProductDemo/css/grocery.png HTTP/1.1" 200 175075
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /ProductDemo/css/beverages.jpg HTTP/1.1" 200 1092911
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /ProductDemo/css/frozen.jpg HTTP/1.1" 200 318585
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /ProductDemo/css/fresh.jpg HTTP/1.1" 200 367202
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:19:03 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:20:11 +0530] "GET /ProductDemo/categoryServlet;jsessionid=257B2B5C05CCBE47982EB462698F30A9?category=Grocery HTTP/1.1" 200 2405
+0:0:0:0:0:0:0:1 - - [28/Oct/2023:20:20:11 +0530] "GET /ProductDemo/css/category.css HTTP/1.1" 200 1103
